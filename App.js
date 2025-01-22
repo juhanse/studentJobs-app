@@ -14,29 +14,44 @@ function App() {
   return (
 	<NavigationContainer>
 		<Tab.Navigator
-		screenOptions={({ route }) => ({
-			tabBarIcon: ({ color, size }) => {
-				let iconName: keyof typeof Ionicons.glyphMap = "home-outline";
-	
-				if (route.name === "Home")
-					iconName = "home-outline";
-				else if (route.name === "Messages")
-					iconName = "chatbubble-outline";
-				else if (route.name === "Settings")
-					iconName = "settings-outline";
-	
-				return <Ionicons name={iconName} size={size} color={color} />;
-			},
-			tabBarActiveTintColor: "#6200ee",
-			tabBarInactiveTintColor: "gray",
-			tabBarStyle: styles.tabBar,
-			headerStyle: styles.header,
-			headerTitleStyle: styles.headerTitle,
-		  })}
+			screenOptions={() => ({
+				tabBarActiveTintColor: "#6200ee",
+				tabBarInactiveTintColor: "gray",
+				tabBarStyle: styles.tabBar,
+				headerStyle: styles.header,
+				headerTitleStyle: styles.headerTitle,
+			})}
 		>
-			<Tab.Screen name="Home" component={Home} />
-			<Tab.Screen name="Messages" component={Messages} />
-			<Tab.Screen name="Settings" component={Settings} />
+			<Tab.Screen
+				name="Home"
+				component={Home}
+				options={{
+					tabBarLabel: 'Home',
+					tabBarIcon: ({ color }) => (
+					  <Ionicons name="home" size={24} color={color} />
+					),
+				}}
+			/>
+			<Tab.Screen
+				name="Messages"
+				component={Messages}
+				options={{
+					tabBarLabel: 'Home',
+					tabBarIcon: ({ color }) => (
+					  <Ionicons name="mail" size={24} color={color} />
+					),
+				}}
+			/>
+			<Tab.Screen
+				name="Settings"
+				component={Settings}
+				options={{
+					tabBarLabel: 'Home',
+					tabBarIcon: ({ color }) => (
+					  <Ionicons name="settings" size={24} color={color} />
+					),
+				}}
+			/>
 		</Tab.Navigator>
 	</NavigationContainer>
   );
