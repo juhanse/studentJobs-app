@@ -1,6 +1,7 @@
 #IDEA
 .vscode
 .idea
+.expo
 
 # Node.js
 node_modules
