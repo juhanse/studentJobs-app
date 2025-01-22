@@ -1,6 +1,7 @@
-import { SafeAreaView, Text, StyleSheet } from 'react-native';
+import { SafeAreaView, StyleSheet } from 'react-native';
 
 import SearchBar from '../components/SearchBar';
+import Offers from '../components/Offers';
 
 function Home() {
 	return (
@@ -8,7 +9,9 @@ function Home() {
 			<SafeAreaView style={styles.search}>
 				<SearchBar />
 			</SafeAreaView>
-			<Text style={styles.text}>Home</Text>
+			<SafeAreaView style={styles.offers}>
+				<Offers title="Frontend Developer" salary="£50,000" description="React, Angular, Vue" />
+			</SafeAreaView>
 		</SafeAreaView>
 	)
 }
@@ -19,14 +22,13 @@ const styles = StyleSheet.create({
 		backgroundColor: 'pink',	
 	},
 	search: {
-		width: '90%',
-		marginTop: 10,
+		width: '80%',
+		marginTop: 20,
 		alignSelf: 'center',
 	},
-	text: {
-		fontSize: 24,
-		fontWeight: 'bold',
-		color: '#333',	
+	offers: {
+		flex: 1,
+		marginTop: 50,
 	},
 });
 
