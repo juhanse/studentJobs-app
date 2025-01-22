@@ -10,11 +10,10 @@ function Navigation() {
   	return (
 		<Tabs
 			screenOptions={() => ({
-				tabBarActiveTintColor: "pink",
-				tabBarInactiveTintColor: "gray",
-				tabBarStyle: styles.tabBar,
-				headerStyle: styles.header,
-				headerTitleStyle: styles.headerTitle,
+				tabBarActiveTintColor: 'white',
+				tabBarInactiveTintColor: 'gray',
+				tabBarStyle: styles.tabBarStyle,
+				tabBarLabelStyle: styles.tabBarLabelStyle,		
 				headerShown: false,
 			})}
 		>
@@ -50,32 +49,17 @@ function Navigation() {
 }
 
 const styles = StyleSheet.create({
-	screen: {
-		flex: 1,
-		justifyContent: "center",
-		alignItems: "center",
-		backgroundColor: "#f0f0f0",
+	tabBarLabelStyle: {
+		fontSize: 12,
 	},
-	text: {
-		fontSize: 18,
-		fontWeight: "bold",
-		color: "#333",
-	},
-	tabBar: {
-		backgroundColor: "#fff",
-		borderTopWidth: 1,
-		borderTopColor: "#ddd",
-		height: 60,
-		paddingBottom: 5,
-	},
-	header: {
-	  	backgroundColor: "#6200ee",
-	},
-	headerTitle: {
-		color: "#fff",
-		fontSize: 18,
-		fontWeight: "bold",
-	},
+	tabBarStyle: {
+		position: 'absolute',
+		bottom: 5,
+		elevation: 0,
+		shadowOpacity: 0,
+		borderTopWidth: 0,
+		backgroundColor: 'transparent',
+	},	
 });
 
 export default Navigation;
