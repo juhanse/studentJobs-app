@@ -1,30 +1,25 @@
 import React from 'react';
+import { Tabs } from 'expo-router';
 import { StyleSheet } from 'react-native';
-import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from "@expo/vector-icons";
+import { useColorScheme } from '@/hooks/useColorScheme';
 
-import Home from '@/app/screens/home';
-import Messages from '@/app/screens/messages';
-import Settings from '@/app/screens/settings';
+function Navigation() {
+	const colorScheme = useColorScheme();
 
-const Tab = createBottomTabNavigator();
-
-function App() {
-  return (
-	<NavigationContainer>
-		<Tab.Navigator
+  	return (
+		<Tabs
 			screenOptions={() => ({
-				tabBarActiveTintColor: "#6200ee",
+				tabBarActiveTintColor: "pink",
 				tabBarInactiveTintColor: "gray",
 				tabBarStyle: styles.tabBar,
 				headerStyle: styles.header,
 				headerTitleStyle: styles.headerTitle,
+				headerShown: false,
 			})}
 		>
-			<Tab.Screen
-				name="Home"
-				component={Home}
+			<Tabs.Screen
+				name="index"
 				options={{
 					tabBarLabel: 'Home',
 					tabBarIcon: ({ color }) => (
@@ -32,29 +27,26 @@ function App() {
 					),
 				}}
 			/>
-			<Tab.Screen
-				name="Messages"
-				component={Messages}
+			<Tabs.Screen
+				name="messages"
 				options={{
-					tabBarLabel: 'Home',
+					tabBarLabel: 'Messages',
 					tabBarIcon: ({ color }) => (
 					  <Ionicons name="mail" size={24} color={color} />
 					),
 				}}
 			/>
-			<Tab.Screen
-				name="Settings"
-				component={Settings}
+			<Tabs.Screen
+				name="profile"
 				options={{
-					tabBarLabel: 'Home',
+					tabBarLabel: 'Profile',
 					tabBarIcon: ({ color }) => (
 					  <Ionicons name="settings" size={24} color={color} />
 					),
 				}}
 			/>
-		</Tab.Navigator>
-	</NavigationContainer>
-  );
+		</Tabs>
+	);
 }
 
 const styles = StyleSheet.create({
@@ -86,4 +78,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default App;
+export default Navigation;
