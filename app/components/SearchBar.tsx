@@ -18,7 +18,7 @@ const SearchBar = () => {
 				onChangeText={setSearch}
 			/>
 			<Pressable style={styles.searchIcon}>
-				<Ionicons name="search" size={24} color="white" />
+				<Ionicons name="filter-circle" size={24} color="white" />
 			</Pressable>
 		</SafeAreaView>
 	);

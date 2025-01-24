@@ -10,7 +10,7 @@ function Home() {
 				<SearchBar />
 			</SafeAreaView>
 			<SafeAreaView style={styles.offers}>
-				<Offers title="Frontend Developer" salary="£50,000" description="React, Angular, Vue" />
+				<Offers />
 			</SafeAreaView>
 		</SafeAreaView>
 	)
