@@ -1,40 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
-import axios from 'axios';
+import { SafeAreaView, StyleSheet, FlatList } from 'react-native';
+import { db } from '../../FirebaseConfig';
+import { collection, getDocs, query, doc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
 
 import OfferBanner from '@/app/components/ui/OfferBanner';
 
 const Offers = () => {
-	const [offers, setOffers] = useState([]);
+	const [offers, setOffers] = useState<any[]>([]);
+	const auth = getAuth();
+	const user = auth.currentUser;
+	const offersCollection = collection(db, 'offers');
 
-	const fetchOffers = async () => {
-		try {
-			const response = await axios.get('https://109.136.40.34:3000/offers');
-	
-			if (response.status === 200)
-			{
-				console.log(response.data);
-				setOffers(response.data);
-			}
-		} catch (error) {
-			console.error(error);
-		}
-	}
+	const getOffers = async () => {
+		const data = await getDocs(query(offersCollection));
+		const setOffers = data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+	};
 
 	useEffect(() => {
-		fetchOffers();
-	}, [offers]);
+		getOffers();
+	}, [user]);
 
 	return (
 		<SafeAreaView style={styles.container}>
-			{offers.map((offer, index) => (
-				<OfferBanner
-					key={index}
-					title={offer.title}
-					salary={offer.salary}
-					description={offer.description}
-				/>
-			))}
+			<FlatList
+				data={offers}
+				renderItem={({ item }) => <OfferBanner {...item} />}
+				keyExtractor={(item) => item.id.toString()}
+			/>
 		</SafeAreaView>
 	);
 };

@@ -2,32 +2,9 @@ import React, { useState } from 'react';
 import { SafeAreaView, Text, StyleSheet, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
-import axios from 'axios';
 
-const OfferBanner: React.FC<OfferBannerProps> = ({ title, salary, description }) => {
+const OfferBanner: React.FC<OfferBannerProps> = ({ title, salary, description, society }) => {
 	const [saved, setSaved] = useState(false);
-
-	const saveOffer = async () => {
-		try {
-			const response = await axios.post('https://api.example.com/offers/save', { title, salary, description });
-
-			if (response.status === 200)
-				setSaved(true);
-		} catch (error) {
-			console.error(error);
-		}
-	}
-
-	const unsaveOffer = async () => {
-		try {
-			const response = await axios.post('https://api.example.com/offers/unsave', { title, salary, description });
-
-			if (response.status === 200)
-				setSaved(false);
-		} catch (error) {
-			console.error(error);
-		}
-	}
 
 	return (
 		<BlurView intensity={50} style={styles.offerContainer}>
