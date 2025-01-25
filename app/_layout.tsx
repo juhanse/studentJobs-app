@@ -13,13 +13,12 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   	const colorScheme = useColorScheme();
 	const [loaded] = useFonts({
-		SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+		Poppins: require('../assets/fonts/Poppins-Medium.ttf'),
 	});
 
 	useEffect(() => {
-		if (loaded) {
-		SplashScreen.hideAsync();
-		}
+		if (loaded)
+			SplashScreen.hideAsync();
 	}, [loaded]);
 
 	if (!loaded)
