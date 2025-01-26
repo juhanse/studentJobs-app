@@ -1,6 +1,6 @@
 import React from 'react';
 import { router } from 'expo-router';
-import { StyleSheet, Text, TextInput, TouchableOpacity, SafeAreaView } from 'react-native';
+import { StyleSheet, TextInput, Text, TouchableOpacity, SafeAreaView } from 'react-native';
 import { auth } from '../FirebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInAnonymously } from 'firebase/auth';
 
@@ -43,7 +43,7 @@ const index = () => {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<Text style={styles.title}>Welcome to the app</Text>
+			<Text>Welcome to the app</Text>
 			<TextInput 
 				style={styles.textInput}
 				placeholder="Email"
@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
 	},
 	title: {
 		fontSize: 28,
+		fontFamily: 'Black',
 		fontWeight: 'bold',
 		color: '#456abf',
 	},
@@ -105,6 +106,7 @@ const styles = StyleSheet.create({
 	},
 	buttonText: {
 		fontSize: 18,
+		fontFamily: 'Medium',
 		color: 'white',
 	},
 });

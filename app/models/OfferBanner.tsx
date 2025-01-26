@@ -1,4 +1,4 @@
-interface OfferBannerProps {
+export interface OfferBannerProps {
 	id: number;
 	title: string;
 	description: string;

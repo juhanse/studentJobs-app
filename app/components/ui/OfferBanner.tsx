@@ -3,6 +3,8 @@ import { View, SafeAreaView, Text, StyleSheet, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 
+import { OfferBannerProps } from '@/app/models/OfferBanner';
+
 const OfferBanner: React.FC<OfferBannerProps> = ({ id, title, description, salary, society }) => {
 	const [saved, setSaved] = useState(false);
 
