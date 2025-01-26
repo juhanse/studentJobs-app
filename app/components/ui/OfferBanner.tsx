@@ -9,18 +9,16 @@ const OfferBanner: React.FC<OfferBannerProps> = ({ id, title, description, salar
 	const [saved, setSaved] = useState(false);
 
 	return (
-		<View style={styles.container}>
-			<BlurView intensity={50} tint='light' style={styles.card}>
-				<SafeAreaView style={styles.titleSalaryContainer}>
-					<Text style={styles.title}>{title}</Text>
-					<Text style={styles.salary}>{salary}</Text>
-				</SafeAreaView>
-				<Text style={styles.description}>{description}</Text>
-				<Pressable onPress={() => setSaved(!saved)} style={styles.saveButton}>
-					{saved ? <Ionicons name="heart" size={24} color="red" /> : <Ionicons name="heart-outline" size={24} color="red" />}
-				</Pressable>
-			</BlurView>
-		</View>
+		<BlurView intensity={50} tint='light' style={styles.card}>
+			<SafeAreaView style={styles.titleSalaryContainer}>
+				<Text style={styles.title}>{title}</Text>
+				<Text style={styles.salary}>{salary}</Text>
+			</SafeAreaView>
+			<Text style={styles.description}>{description}</Text>
+			<Pressable onPress={() => setSaved(!saved)} style={styles.saveButton}>
+				{saved ? <Ionicons name="heart" size={24} color="red" /> : <Ionicons name="heart-outline" size={24} color="red" />}
+			</Pressable>
+		</BlurView>
 	);
 };
 

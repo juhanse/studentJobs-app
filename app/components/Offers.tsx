@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList } from 'react-native';
+import { SafeAreaView, FlatList } from 'react-native';
 
 import OfferBanner from '@/app/components/ui/OfferBanner';
 
@@ -32,15 +32,31 @@ const Offers = () => {
 			description: "We're looking for a junior mobile developer to join our team.",
 			salary: 30,
 			society: "Apple",
+		},
+		{
+			id: 5,
+			title: "DevOps junior",
+			description: "We're looking for a junior DevOps to join our team.",
+			salary: 28,
+			society: "Microsoft",
+		},
+		{
+			id: 6,
+			title: "Data scientist junior",
+			description: "We're looking for a junior data scientist to join our team.",
+			salary: 32,
+			society: "IBM",
 		}
 	];
 
 	return (
-		<FlatList
-			data={offers}
-			renderItem={({ item }) => <OfferBanner {...item} />}
-			keyExtractor={(item) => item.id.toString()}
-		/>
+		<SafeAreaView style={{ flex: 1 }}>
+			<FlatList
+				data={offers}
+				renderItem={({ item }) => <OfferBanner {...item} />}
+				keyExtractor={item => item.id.toString()}
+			/>
+		</SafeAreaView>
 	);
 };
 
