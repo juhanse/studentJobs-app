@@ -1,8 +1,12 @@
 import React from 'react';
 import { router } from 'expo-router';
-import { StyleSheet, TextInput, Text, TouchableOpacity, SafeAreaView } from 'react-native';
+import { StyleSheet, View, TextInput, Text, TouchableOpacity, SafeAreaView } from 'react-native';
 import { auth } from '../FirebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInAnonymously } from 'firebase/auth';
+
+import Apple from '@/assets/images/apple.svg';
+import Google from '@/assets/images/google.svg';
+import Itsme from '@/assets/images/itsme.svg';
 
 const index = () => {
 	const [email, setEmail] = React.useState('');
@@ -43,30 +47,50 @@ const index = () => {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<Text>Welcome to the app</Text>
+			<Text style={styles.title}>Welcome back! Glad to see you, Again!</Text>
 			<TextInput 
 				style={styles.textInput}
-				placeholder="Email"
+				placeholder="Enter your email"
 				placeholderTextColor="gray"
 				value={email}
 				onChangeText={setEmail} 
 			/>
 			<TextInput 
 				style={styles.textInput}
-				placeholder="Password"
+				placeholder="Enter your password"
 				placeholderTextColor="gray"
+				autoCapitalize="none"
+				autoCorrect={false}
 				value={password}
 				onChangeText={setPassword}
 				secureTextEntry 
 			/>
+			<TouchableOpacity style={styles.forgotButton}>
+				<Text style={styles.forgotText}>Mot de passe oublié ?</Text>
+			</TouchableOpacity>
 			<TouchableOpacity style={styles.button} onPress={signIn}>
-				<Text style={styles.buttonText}>Sign In</Text>
+				<Text style={styles.buttonText}>Se connecter</Text>
 			</TouchableOpacity>
-			<TouchableOpacity style={styles.button} onPress={signUp}>
-				<Text style={styles.buttonText}>Sign Up</Text>
-			</TouchableOpacity>
-			<TouchableOpacity onPress={signInAnon}>
-				<Text style={styles.buttonText}>Sign In Anonymously</Text>
+			<View style={styles.lineContainer}>
+				<View style={styles.line} />
+				<View>
+					<Text style={styles.lineText}>Ou</Text>
+				</View>
+				<View style={styles.line} />
+			</View>
+			<View style={styles.squareContainer}>
+				<TouchableOpacity style={styles.square} onPress={signUp}>
+					<Apple width={38} height={38} />
+				</TouchableOpacity>
+				<TouchableOpacity style={styles.square} onPress={signUp}>
+					<Google width={38} height={38} />
+				</TouchableOpacity>
+				<TouchableOpacity style={styles.square} onPress={signUp}>
+					<Itsme width={38} height={38} />
+				</TouchableOpacity>
+			</View>
+			<TouchableOpacity style={styles.anoButton} onPress={signInAnon}>
+				<Text style={styles.anoText}>Se connecter en invité</Text>
 			</TouchableOpacity>
 		</SafeAreaView>
 	);
@@ -75,33 +99,46 @@ const index = () => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: 'center',
 		alignItems: 'center',
-		backgroundColor: 'pink',
+		backgroundColor: '#181B24',
 	},
 	title: {
+		width: '100%',
+		padding: 40,
+		marginTop: 60,
+		marginBottom: 60,
 		fontSize: 28,
 		fontFamily: 'Black',
 		fontWeight: 'bold',
-		color: '#456abf',
+		color: 'white',
 	},
 	textInput: {
-		borderWidth: 2,
-		borderRadius: 8,
-		borderColor: 'gray',
+		height: 55,
+		borderWidth: 1,
+		borderRadius: 16,
+		borderColor: '#BABABA',
 		width: '80%',
-		height: 40,
 		marginVertical: 10,
 		backgroundColor: 'white',
 	},
+	forgotButton: {
+		width: '80%',
+	},
+	forgotText: {
+		fontSize: 12,
+		fontFamily: 'Medium',
+		color: 'gray',
+		textAlign: 'right',
+		paddingRight: 10,
+	},
 	button: {
 		width: '80%',
-		height: 50,
-		marginVertical: 10,
+		height: 55,
+		marginVertical: 20,
 		justifyContent: 'center',
 		alignItems: 'center',
-		borderRadius: 8,
-		backgroundColor: '#456abf',
+		borderRadius: 16,
+		backgroundColor: '#FF47BC',
 		boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
 	},
 	buttonText: {
@@ -109,6 +146,50 @@ const styles = StyleSheet.create({
 		fontFamily: 'Medium',
 		color: 'white',
 	},
+	lineContainer: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		paddingHorizontal: 40,
+	},
+	line: {
+		flex: 1,
+		height: 1,
+		backgroundColor: '#BABABA'
+	},
+	lineText: {
+		width: 50,
+		textAlign: 'center',
+		color: '#BABABA',
+	},
+	squareContainer: {
+		width: '100%',
+		flexDirection: 'row',
+		justifyContent: 'space-around',
+		paddingHorizontal: 40,
+	},
+	square: {
+		width: 105,
+		height: 75,
+		marginVertical: 20,
+		justifyContent: 'center',
+		alignItems: 'center',
+		borderRadius: 16,
+		backgroundColor: 'white',
+		boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.2)',
+	},
+	anoButton: {
+		width: '100%',
+		position: 'absolute',
+		bottom: 0,
+		paddingBottom: 25,
+	},
+	anoText: {
+		fontSize: 18,
+		fontFamily: 'Medium',
+		color: 'gray',
+		textAlign: 'center',
+		padding: 20,
+	}
 });
 
 export default index;
