@@ -1,50 +1,46 @@
-# Welcome to your Expo app 👋
+# Student Jobs App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A simple React Native app built with Expo that lists student job opportunities. This project was created as a learning experience to explore the fundamentals of React Native and Expo.
 
-## Get started
+## Features
+- List available student jobs
+- Search and filter jobs
+- Simple and intuitive UI
 
-1. Install dependencies
+## Installation
 
-   ```bash
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/student-jobs-app.git
+   cd student-jobs-app
+   ```
+2. Install dependencies:
+   ```sh
    npm install
    ```
-
-2. Start the app
-
-   ```bash
-    npx expo start
+3. Start the development server:
+   ```sh
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+## Build the App
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+To create a production build, use the following command:
+```sh
+npx expo prebuild && npx expo run:android # For Android
+npx expo prebuild && npx expo run:ios # For iOS (Mac required)
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+Alternatively, you can use EAS (Expo Application Services) for an optimized build:
+```sh
+npx eas build --platform android # For Android
+npx eas build --platform ios # For iOS
+```
 
-## Learn more
+## Technologies Used
+- React Native
+- Expo
+- JavaScript/TypeScript
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## License
+This project is licensed under the MIT License.
