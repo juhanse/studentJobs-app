@@ -11,8 +11,8 @@ A simple React Native app built with Expo that lists student job opportunities. 
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/student-jobs-app.git
-   cd student-jobs-app
+   git clone https://github.com/juhanse/studentjob-app.git
+   cd studentjob-app
    ```
 2. Install dependencies:
    ```sh
@@ -29,12 +29,6 @@ To create a production build, use the following command:
 ```sh
 npx expo prebuild && npx expo run:android # For Android
 npx expo prebuild && npx expo run:ios # For iOS (Mac required)
-```
-
-Alternatively, you can use EAS (Expo Application Services) for an optimized build:
-```sh
-npx eas build --platform android # For Android
-npx eas build --platform ios # For iOS
 ```
 
 ## Technologies Used
