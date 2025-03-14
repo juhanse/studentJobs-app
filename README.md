@@ -1,4 +1,4 @@
-# Student Jobs App
+# 🧑‍🎓 Student Jobs App
 
 A simple React Native app built with Expo that lists student job opportunities. This project was created as a learning experience to explore the fundamentals of React Native and Expo.
 
